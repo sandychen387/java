@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+
+public class PatternTwo {
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+      
+      System.out.println("Please enter a number 1...9 : ");
+      int rows = scnr.nextInt();
+      for (int i =1; i <=rows; i++) {
+    	  
+    	  for (int j=1;j<=(-1*i+rows);j++) {
+    		  System.out.print("  ");
+    		  
+    	  }
+    	  for(int k =i; k>=1;k--) {
+    		  System.out.print(" "+k);
+    	  }
+    	
+    	  System.out.println();
+      }
+   }
+}
