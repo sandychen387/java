@@ -1,0 +1,96 @@
+public class Animal {
+	private String name;
+	private int birthYear;
+	private double weight;
+	private char gender;
+
+public Animal() {
+	name = "";
+	birthYear = 1900;
+	weight = 0.0;
+	gender = 'u';
+}
+public Animal(String name, int birthYear, double weight, char gender) {
+
+	
+	this.name = name;
+	this.birthYear = birthYear;
+	this.weight = weight;
+	this.gender = gender;
+	
+}
+
+public String getName() {
+	return name;
+}
+public void setName(String newName) {
+	name = newName;
+}
+public int getBirthYear() {
+	return birthYear;
+}
+public void setBirthYear(int newBirthYear) {
+	birthYear=newBirthYear;
+}
+public Double getWeight() {
+	return weight;
+}
+
+public char getGender() {
+	return gender;
+}
+public void setGender(char newGender) {
+	if(newGender=='m'||newGender=='f') {
+	gender= newGender;
+}else {
+	gender='u';
+	}
+}
+public int calculateAge(int currentYear) {
+	if(currentYear < birthYear) {
+		return -1;
+	}else {
+	return currentYear - birthYear;
+}
+}
+public boolean isMale() {
+	return gender=='m';
+}
+public boolean isFemale() {
+	return gender=='f';
+}
+public void printDetails() {
+	System.out.printf("name: %20s "
+			+ "| Year of Birth: %4d "
+			+ "| Weight: %10.2f "
+			+ "| Gender: %c\n",
+			name,birthYear,weight,gender);
+}
+public void gainWeight() {
+	gainWeight(1.0);
+}
+public void gainWeight(double amount) {
+	weight = Math.max(0.0, weight+amount);
+}
+public void loseWeight() {
+	loseWeight(1.0);
+}
+public void loseWeight(double amount) {
+	weight=Math.max(0.0, weight - amount);
+}
+public void setWeight(double newWeight) {
+	weight = newWeight;
+	if(weight<0.0){
+		this.weight= -1.0;
+	}else {
+		this.weight = weight;
+	}
+}
+public void display() {
+	 System.out.print("name:            " + name + " | ");
+	 System.out.print("Year of Birth: " + birthYear + " | ");
+	 System.out.print("Weight:     " + weight + " | ");
+	 System.out.print("gender: " + gender);
+	 System.out.println();
+}
+}
