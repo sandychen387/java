@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class CopenhagenTransit {
+public static void main(String[] args) {
+     int zoneNum;
+     String adultOrChild;
+     double fare;  
+     
+     Scanner scnr = new Scanner(System.in);
+
+     System.out.println("Enter zone number :");
+     System.out.println("Enter adult or child :");
+     zoneNum = scnr.nextInt();
+     adultOrChild = scnr.next();
+     if ((zoneNum <=2)&& (adultOrChild.equals("adult"))) {         // Age 12 and under
+        fare = 23.0;
+       
+     }
+     else if ((zoneNum <=2)&& (adultOrChild.equals("child"))) {         // Age 12 and under
+         fare = 11.5;
+         
+     }
+     else if ((zoneNum == 3)&& (adultOrChild.equals("adult"))) {         // Age 12 and under
+         fare = 34.5;
+         
+     }
+     else if ((zoneNum == 3) || (zoneNum ==4 )&& (adultOrChild.equals("child"))) {         // Age 12 and under
+         fare = 23.0;
+         
+     }
+     else if ((zoneNum == 4)&& (adultOrChild.equals("adult"))) {         // Age 12 and under
+         fare = 46.0;
+         
+     }
+     else {                       // All other ages
+         fare = -1.00;
+         
+     }
+     System.out.println("The fare for " + adultOrChild +" to zone number " + zoneNum +" is " + fare+".");
+    
+  }
+}
