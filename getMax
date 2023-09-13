@@ -1,0 +1,119 @@
+*Required are to coding other methods in addition to the main method. These additional methods will perform specific functions and, in most cases, return results. 
+*Date created: 4/7/2023
+*Email: qiurong.chen@lc.cuny.edu
+*/
+public class Homework6Methods {
+	
+	public static int getMaxOf2Ints(int num1,int num2) {
+		if(num1 > num2) {
+			return num1;
+		}
+		else {
+			return num2;
+		}
+	}
+	
+	public static int getMinOf2Ints(int num1,int num2) {
+		if(num1> num2) {
+			return num2;
+		}
+		else {
+			return num1;
+		}
+	}
+	
+	public static int getMaxOf3Ints(int num1, int num2, int num3) {
+		int ans = Math.max(num1, num2);
+		return Math.max(ans, num3);
+	}
+	
+	public static int getMedianOf3Ints(int num1, int num2, int num3) {
+		if(((num1 >= num2)&&(num1 <= num3))||((num1<=num2)&&(num1>=num3))){
+			return num1;
+		}
+		else if(((num2 >= num1)&(num2 <= num3))|| ((num2<=num1)&&(num2>=num3))){
+			return num2;
+		}
+		else {
+			return num3;
+		}
+	}
+	
+	public static void printMinOf3Ints(int num1,int num2, int num3) {
+		
+		int ans = Math.min(num1, num2);
+		
+		int minVal= Math.min(ans, num3);
+		System.out.println("The min is "+minVal);
+	}
+	public static int getProdOfAllPositiveInts(int num) {
+		if(num <=0 ) {
+			return 0;
+		}
+		int product = 1;
+		for(int i = 1; i <= num; i ++ ) {
+			product *= i;
+		}
+		return product;
+	}
+	public static int getProdOfAllNegativeInts(int num) {
+		if(num >=0 ) {
+			return 0;
+		}
+		int product = 1;
+		for(int i = -1; i >= num; i -- ) {
+			product *= i;
+		}
+		return product;
+	}
+	public static boolean isProdOfAllNegativeIntsNegative(int num) {
+		if(num < 0) {
+			int numNegative = 0; 
+			for(int i =0; i < num; i ++) {
+				numNegative += i;
+			}
+			boolean isNegative = numNegative %2 == 1;
+			return true;
+		}
+		return false;
+	}
+	
+	public static char getCharAtIndex(String s, int index) {
+	if( s == null||index < 0||index>=s.length()) {
+		return '?';
+	}
+	char ans = s.charAt(index);
+	return ans;
+	}
+	
+	public static int getCountOfCharInString(String s, char c) {
+	int count = 0;
+	for(int i = 0; i < s.length(); i++) {
+		if(s.charAt(i) == c) {
+			count++;
+		}
+	}
+	return count;
+}
+	public static String getStringReversed(String s) {
+		String reverse ="";
+		for(int i=s.length()-1; i>=0; i--) {
+			reverse += s.charAt(i);
+		}
+		return reverse;
+	}
+	
+	public static String getStringTitleCased(String s) {
+		if(s == null || s.length() ==0) {
+			return "";
+		}
+		s = s.replace(" ", "");
+		if(s.equals("")) {
+			return "";
+		}
+		String ans = "" + Character.toUpperCase(s.charAt(0)) + s.charAt(s.length()-1);
+		return ans;
+		
+	}
+}
+	
