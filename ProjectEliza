@@ -1,0 +1,59 @@
+*Required are to Create a program named PromptBank. 
+*It parodied a psychotherapist session, 
+*such that the user would type sentences 
+*and the program used those words to compose a question.
+*Date created: 05/08/2023
+*Email: qiurong.chen@lc.cuny.edu
+*https://youtu.be/rDk8n9ORqGE
+*/
+import java.util.Scanner;
+
+public class ProjectEliza {
+	public static void main(String[] args) {
+		PromptBank promptbank = new PromptBank();
+		Scanner scanner = new Scanner(System.in);
+		
+		
+		System.out.println("Hello, my name is Eliza. What is your name?");
+		String username = scanner.nextLine();
+		
+		System.out.println("Hello, " + username + ". Tell me what is on your mind today in 1 sentence.");
+		
+		while(true) {
+			String sentence = scanner.nextLine();
+
+	        String sentence1 = sentence.replaceAll("\\p{Punct}", "");
+			String[] words = sentence1.split(" ");
+			String word1 = words[0];
+			String word2 = words[words.length - 1];
+			if(sentence.endsWith("?")) {
+				String question = promptbank.getRandomQuestionTrunk(word1, word2);
+				System.out.println(question);
+			}
+			else if(sentence.endsWith("!")) {
+				String statement = "WOW! Dramatic! " + promptbank.getRandomStatementTrunk(word1, word2);
+				System.out.println(statement);
+			}
+			
+		
+			else if(sentence.equals("EXIT")) {
+				System.out.println("Would you like to run the session again? (Yes/No)");
+				String answer = scanner.nextLine();
+				if((answer.equals("No"))||(answer.equals("no"))||(answer.equals("NO"))) {
+					System.out.println("Goodbye, until next time");
+                    break;
+				}
+				else if((answer.equals("Yes"))||(answer.equals("yes"))||(answer.equals("YES"))) {
+					System.out.println("Hello, my name is Eliza. What is your name?");
+					username = scanner.nextLine();
+					System.out.println("Hello " + username + ". Tell me what is on your mind today in 1 sentence.");
+				}
+			}
+			else {
+				String statement = promptbank.getRandomStatementTrunk(word1, word2);
+				System.out.println(statement);
+			}
+		}
+	}
+	
+}
