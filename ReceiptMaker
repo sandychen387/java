@@ -1,0 +1,88 @@
+*Description: This is final exam question1.
+*Required are to Write a Java program 
+*Use the code provided in the class ReceiptMaker and correct all the errors so it runs as described 
+*Date created: 05/17/2023
+*Email: qiurong.chen@lc.cuny.edu
+*/
+import java.util.Scanner;
+
+public class ReceiptMaker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome to the 10 items or less checkout line");
+
+        String[] itemNames = new String[10];
+        double[] itemPrices = new double[10];
+        int itemCount = 0;
+        double meanPrice = 0.0;
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Enter item #" + (i + 1) + "'s name and price separated by a space, or enter \"checkout\" to end transaction early");
+            String input = scanner.nextLine();
+
+            if (input.equals("checkout")) {
+                break;
+            }
+
+            String[] parts = input.split(" ");
+            String itemName = parts[0];
+            double itemPrice = Double.parseDouble(parts[1]);
+
+            while (itemPrice < 0) {
+                System.out.println("Price \"" + itemPrice + "\" cannot be negative.");
+                System.out.println("Reenter price");
+                itemPrice = Double.parseDouble(scanner.nextLine());
+            }
+
+            itemNames[itemCount] = itemName;
+            itemPrices[itemCount] = itemPrice;
+            itemCount++;
+        }
+
+//        System.out.println("-----------------RECEIPT STATS-----------------");
+        double minPrice = itemPrices[0];
+        String minItemName = itemNames[0];
+        double maxPrice = itemPrices[0];
+        String maxItemName = itemNames[0];
+        double totalPrice = 0.0;
+
+        for (int i = 0; i < itemCount; i++) {
+            totalPrice += itemPrices[i];
+
+            if (itemPrices[i] < minPrice) {
+                minPrice = itemPrices[i];
+                minItemName = itemNames[i];
+            }
+
+            if (itemPrices[i] > maxPrice) {
+                maxPrice = itemPrices[i];
+                maxItemName = itemNames[i];
+            }
+        }
+
+        double tax = totalPrice * 0.0875;
+        double total = totalPrice + tax;
+        if (itemCount != 0) {
+        	meanPrice = totalPrice / itemCount;
+        }
+        
+        System.out.println("-------------------------------------------------");
+        System.out.println("Subtotal: $ " + String.format("%.2f", totalPrice) + "    | # of Items " + String.format("%02d", itemCount));
+        System.out.println("     Tax: $ " + String.format("%05.2f", tax)+" ");
+        System.out.println("   Total: $ " + String.format("%.2f", total)+" ");
+        System.out.println("--------------------THANK YOU--------------------");
+        System.out.println();
+        System.out.println("-----------------RECEIPT STATS-----------------");
+        System.out.println("Min Item Name: " + String.format("%12s", minItemName) + " | Price: $ " + String.format("%.2f", minPrice));
+        System.out.println("Max Item Name: " + String.format("%12s", maxItemName) + " | Price: $ " + String.format("%.2f", maxPrice));
+        System.out.println("Mean price of " + String.format("%02d", itemCount) + " items purchased:  $ " + String.format("%.2f", meanPrice));
+        System.out.println();
+        System.out.println();
+        System.out.println("---------------RECEIPT BREAKDOWN---------------");
+
+        for (int i = 0; i < itemCount; i++) {
+            System.out.println("Item #" + String.format("%02d", (i + 1)) + "   Name: " + String.format("%12s", itemNames[i]) + " | Price: $ " + String.format("%.2f", itemPrices[i]));
+        }
+    }
+}
