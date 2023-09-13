@@ -1,0 +1,24 @@
+*Required are to Write a Java program that prompts the user for an int n
+*Date created: 3/17/2023
+*Email: qiurong.chen@lc.cuny.edu
+*/
+
+
+import java.util.Scanner;
+
+
+public class PatternOne {
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+      
+      System.out.println("Please enter a number 1...9 : ");
+      int rows = scnr.nextInt();
+      for (int i =1; i <=rows; i++) {
+    	  
+    	  for (int j=1; j<=i;j++) {
+    		  System.out.print(j+" ");
+    	  }
+    	  System.out.println();
+      }
+   }
+}
