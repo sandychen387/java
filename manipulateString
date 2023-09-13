@@ -1,1 +1,55 @@
+*Description: This is final exam question2.
+*Required are to Write a Java program 
+* create a public static method named manipulateString 
+* that asks the user for a sentence using the Scanner.
+*Date created: 05/17/2023
+*Email: qiurong.chen@lc.cuny.edu
+*/
+import java.util.Scanner;
+
+public class FinalExamAnswers {
+    public static void manipulateString() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a sentence");
+        String sentence = scanner.nextLine();
+
+//        String sentence1 = sentence.replaceAll("\"", "");
+        String[] words = sentence.split(" ");
+        String rev = "";
+  
+        for (int i = 0; i < words.length / 2; i++) {
+            String temp = words[i];
+  
+            words[i] = words[words.length - 1 - i];
+            words[words.length - 1 - i] = temp;
+        }
+
+        for (int i = 0; i < words.length; i++) {
+            if (words.length % 2 == 0) {
+                if (i % 2 == 0) {
+                    words[i] = words[i].toLowerCase();
+                } else {
+                    words[i] = words[i].toUpperCase();
+                }
+            } else {
+                if (i % 2 == 0) {
+                    words[i] = words[i].toUpperCase();
+                } else {
+                    words[i] = words[i].toLowerCase();
+                }
+            }
+
+        }
+
+        for (String word : words) {
+//            System.out.print(word + " ");
+        	rev = rev + word +" ";
+        }
+        System.out.print(rev.substring(0,rev.length()-1));
+    }
+
+    public static void main(String[] args) {
+        manipulateString();
+    }
+}
 
