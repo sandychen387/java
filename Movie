@@ -1,0 +1,137 @@
+*that Complete a public class to represent a Movie as described in the document.
+*Date created: 05/17/2023
+*Email: qiurong.chen@lc.cuny.edu
+*/
+public class Movie {
+	
+	    private String movieName;
+	    private int numMinutes;
+	    private boolean isKidFriendly;
+	    private int numCastMembers;
+	    private String[] castMembers;
+
+	   
+	    public Movie() {
+	        this.movieName = "Flick";
+	        this.numMinutes = 0;
+	        this.isKidFriendly = false;
+	        this.castMembers = new String[10];
+	        this.numCastMembers = 0; 
+	    }
+
+	    
+	    public Movie(String movieName, int numMinutes, boolean isKidFriendly, String[] castMembers) {
+	        this.movieName = movieName;
+	        this.numMinutes = numMinutes;
+	        this.isKidFriendly = isKidFriendly;
+//	        this.castMembers = castMembers;
+	        this.numCastMembers = castMembers.length;         
+			this.castMembers = new String[numCastMembers];
+			for (int i = 0; i < castMembers.length; i++){
+				this.castMembers[i] = castMembers[i];
+			}
+	    }
+
+	 
+	    public void setNumMinutes(int numMinutes) {
+	        this.numMinutes = numMinutes;
+	    }
+
+	    public void setMovieName(String movieName) {
+	        this.movieName = movieName;
+	    }
+
+	    public void setIsKidFriendly(boolean isKidFriendly) {
+	        this.isKidFriendly = isKidFriendly;
+	    }
+
+	    public int getNumMinutes() {
+	        return numMinutes;
+	    }
+
+	    public String getMovieName() {
+	        return movieName;
+	    }
+
+	    public boolean isKidFriendly() {
+	        return isKidFriendly;
+	    }
+
+	    public int getNumCastMembers() {
+	        return numCastMembers;
+	    }
+
+	    public String[] getCastMembers() {
+	        return castMembers.clone();
+	    }
+
+	  
+	    public boolean replaceCastMember(int index, String castMemberName) {
+	        if (index >= 0 && index < numCastMembers) {
+	            castMembers[index] = castMemberName;
+	            return true;
+	        }
+	        return false;
+	    }
+
+	    public boolean doArraysMatch(String[] arr1, String[] arr2) {
+	        if (arr1 == null || arr2 == null) {
+	            return arr1 == arr2;
+	        }
+	        if (arr1.length != arr2.length) {
+	            return false;
+	        }
+	        for (int i = 0; i < arr1.length; i++) {
+	            if (!arr1[i].equalsIgnoreCase(arr2[i])) {
+	                return false;
+	            }
+	        }
+	        return true;
+	    }
+
+	    public String getCastMemberNamesAsString() {
+	        if (numCastMembers == 0) {
+	            return "none";
+	        }
+	        StringBuilder builder = new StringBuilder();
+	        for (int i = 0; i < numCastMembers; i++) {
+	            builder.append(castMembers[i]);
+	            if (i < numCastMembers - 1) {
+	                builder.append(", ");
+	            }
+	        }
+	        return builder.toString();
+	    }
+
+	    public String toString() {
+	        String movieInfo = String.format("Movie: [ Minutes %03d | Movie Name: %20s | %s | Number of Cast Members: %d | Cast Members: %s ]",
+	                numMinutes, movieName, isKidFriendly ? "is kid friendly" : "not kid friendly", numCastMembers, getCastMemberNamesAsString());
+	        return movieInfo;
+	    }
+
+	  
+	    public boolean equals(Object o) {
+	    	if (this == o) return true;
+	    	if (o == null || getClass() != o.getClass()) return false;
+
+	    	Movie movie = (Movie) o;
+
+	    	if (numMinutes != movie.numMinutes) return false;
+	    	if (isKidFriendly != movie.isKidFriendly) return false;
+	    	if (numCastMembers != movie.numCastMembers) return false;
+	    	if (!movieName.equals(movie.movieName)) return false;
+
+	    	return doArraysMatch(castMembers, movie.castMembers);
+}
+
+
+	    private boolean doArraysMatch(Object[] arr1, Object[] arr2) {
+	    	if (arr1.length != arr2.length) return false;
+
+	    	for (int i = 0; i < arr1.length; i++) {
+	    	if (!arr1[i].equals(arr2[i])) return false;
+    }
+
+	    	return true;
+}
+}
