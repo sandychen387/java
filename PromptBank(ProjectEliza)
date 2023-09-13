@@ -1,0 +1,56 @@
+*Required are to Create a program named PromptBank. 
+*It parodied a psychotherapist session, 
+*such that the user would type sentences 
+*and the program used those words to compose a question.
+*Date created: 05/08/2023
+*Email: qiurong.chen@lc.cuny.edu
+*https://youtu.be/rDk8n9ORqGE
+*/
+import java.util.Scanner;
+
+public class PromptBank {
+	
+	String[] questions;
+	String[] statements;
+	
+	public PromptBank() {
+		questions = new String[5];
+		statements = new String[5];
+		populateStatementsArray();
+		populateQuestionsArray();
+	}
+	
+	public void populateQuestionsArray() {
+		questions[0] = "Is there anything else about BLANK1 and BLANK2?";
+		questions[1] = "Does BLANK1 bother you? How about BLANK2?";
+		questions[2] = "Are BLANK1 and BLANK2 things you think about often?";
+		questions[3] = "Do you like BLANK1? How about BLANK2?";
+		questions[4] = "Are BLANK1 and BLANK2 things your favorite?";
+	}
+	
+	public void populateStatementsArray() {	
+		statements[0] = "Tell me more about BLANK1 and BLANK2.";
+		statements[1] = "BLANK1 seems important to you, so does BLANK2. Please tell me more.";
+		statements[2] = "BLANK1 and BLANK2 seem to be on your mind. Let's talk about it.";
+		statements[3] = "you seem like BLANK1, not BLANK2. Please tell me about it.";
+		statements[4] = "BLANK1 and BLANK2 seem neither is your favorite. Let's talk about it.";
+	}
+	
+	public String getRandomQuestionTrunk(String word1, String word2) {
+		int random = (int) (Math.random()*questions.length);
+		String questionTrunk = questions[random];
+		return replaceWords(questionTrunk, word1, word2);
+	}
+	public String getRandomStatementTrunk(String word1, String word2) {
+		int random = (int) (Math.random()*statements.length);
+		String statementTrunk = statements[random];
+		return replaceWords(statementTrunk, word1, word2);
+	}
+	private String replaceWords(String prompt, String word1, String word2) {
+		return prompt.replace("BLANK1", word1).replace("BLANK2", word2);
+	}
+	
+	
+	
+
+}
