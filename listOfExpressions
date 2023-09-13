@@ -1,0 +1,57 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class main {
+
+	
+	public static void main(String args []) {
+		
+           // Get input from the user for a name
+		Scanner input = new Scanner(System.in);
+		System.out.println("Please enter your name");
+		String name = input.nextLine();
+		
+		String convo = "";
+		
+           // Loop for a convo
+		while(true) {
+ 
+		System.out.println(greeting(name));
+		convo = input.nextLine();
+		System.out.println("CHATBOT: " + expression(convo));
+			
+		System.out.println("Do you want to quit (Y/N)");
+		convo = input.nextLine();
+		
+		if(convo.equalsIgnoreCase("Y"))
+			break;
+		}
+		
+	}
+	
+// Return greeting to user with your name
+	public static String greeting(String name)
+	{
+		return "CHATBOT: Hello " + name + " I am a program which likes to talk about movies.\nGive me one of your favorite action movie so we can talk about them.";
+		
+		
+	}
+// Return a canned message which take the movie provided	
+	public static String expression(String movie) {
+	
+	int size = 4;	
+	String [] listOfExpressions = new String[size]; 
+	listOfExpressions[0] = "BLANK is very good";
+	listOfExpressions[1] = "BLANK is not bad";
+	listOfExpressions[2] = "That BLANK was not that good";
+	listOfExpressions[3] = "BLANK sequel was better";
+
+	Random r = new Random();
+	int randomInt = r.nextInt(size-1) + 1;
+	
+	return listOfExpressions[randomInt].replace("BLANK",movie);
+	
+		
+	}
+		
+}
