@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class AgeLabel {
+public static void main(String[] args) {
+     int ageInDay;
+     int yearNum; 
+     
+     Scanner scnr = new Scanner(System.in);
+
+     System.out.println("Enter an age in number of days :");
+     
+     ageInDay = scnr.nextInt();
+     yearNum = ageInDay / 365;
+     if ( yearNum<=1) {         // Age 12 and under
+    	 System.out.println("You are an infant");
+       
+     }
+     else if ((yearNum>1)&&(yearNum<=3)) {         // Age 12 and under
+    	 System.out.println("You are a toddler");
+         
+     }
+     else if ((yearNum>3)&&(yearNum<=12)) {         // Age 12 and under
+    	 System.out.println("You are a child");
+         
+     }
+     else if ((yearNum>12)&&(yearNum<=19)) {         // Age 12 and under
+    	 System.out.println("You are a teenager");;
+         
+     }
+     else if ((yearNum>19)&&(yearNum<=21)) {         // Age 12 and under
+    	 System.out.println("You are a young adult");
+         
+     }
+     else if ((yearNum>21)&&(yearNum<=50)) {         // Age 12 and under
+    	 System.out.println("You are an adult");
+         
+     }
+     else if ((yearNum>50)&&(yearNum<=65)) {         // Age 12 and under
+    	 System.out.println("You are middle aged");
+         
+     }
+     else {                       // All other ages
+    	 System.out.println("You are a senior citizen");
+         
+     }
+    } 
+  }
