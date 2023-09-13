@@ -1,0 +1,182 @@
+import java.util.Scanner;
+
+public class MyCalculator {
+	public static void main(String[] args) {
+		String starOverAgain="";
+		double result=0;
+		String calculatorMode;
+		double num;
+		double x;
+		do {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter the calculator mode: Standard/Scientific?");
+		calculatorMode = scan.next();
+		
+	if (calculatorMode.equals("Standard")) {
+		System.out.println("Enter '+' for addition, '-' for subtractions, '*' for multiplication, '/' for division, ");
+		String operation = scan.next();
+		while(!operation.equals("+")&&
+				!operation.equals("-")&&
+				!operation.equals("*")&&
+				!operation.equals("/")) {
+			System.out.println("Invalid operator "+operation);
+			System.out.println("Enter '+' for addition, '-' for subtractions, '*' for multiplication, '/' for division");
+		
+			operation = scan.next();
+		}
+		if(operation.equals("+")){
+			System.out.println("How many numbers do you want to add?: ");
+			int nums = scan.nextInt();
+			System.out.println("Enter "+nums+" numbers: ");
+			result =0;
+			int count= 1;
+			while(count <= nums) {
+				num = scan.nextDouble();
+				result =result  + num;
+				count++;
+			}
+		}
+		else if(operation.equals("-")) {
+			System.out.println("How many numbers do you want to add?: ");
+			int nums = scan.nextInt();
+			System.out.println("Enter "+nums+" numbers: ");
+			num = scan.nextDouble();
+			result  = num;
+			int count= 1;
+			while(count < nums) {
+				num = scan.nextDouble();
+				
+				result  =result - num;
+				count++;
+			}
+		}
+		else if(operation.equals("*")) {
+			System.out.println("How many numbers do you want to add?: ");
+			int nums = scan.nextInt();
+			System.out.println("Enter "+nums+" numbers: ");
+			result=1;
+			int count= 1;
+			while(count <= nums) {
+			num = scan.nextDouble();
+				result =result * num;
+				count++;
+			}
+		}
+		else if(operation.equals("/")) {
+			System.out.println("How many numbers do you want to add?: ");
+			int nums = scan.nextInt();
+			System.out.println("Enter "+nums+" numbers: ");
+			num = scan.nextDouble();
+			result = num;
+			int count= 1;
+			while(count < nums) {
+				num = scan.nextDouble();
+				
+				result=result / num;
+				count++;
+				}
+		}	
+	}
+	
+	else {do {		
+		System.out.println("Enter the calculator mode: Standard/Scientific?");
+	}
+		
+	while(!calculatorMode.equals("Scientific"));{
+		System.out.println("Enter '+' for addition, '-' for subtractions, '*' for multiplication, '/' for division, "
+				+ "'sin' for sin x, 'cos' for cos x, 'tan' for tan x: ");}
+		String operation = scan.next();
+	while(!operation.equals("+")&&
+			!operation.equals("-")&&
+			!operation.equals("*")&&
+			!operation.equals("/")&&
+			!operation.equals("sin")&&
+			!operation.equals("cos")&&
+			!operation.equals("tan")) {
+	System.out.println("Invalid operator "+operation);
+	System.out.println("Enter '+' for addition, '-' for subtractions, '*' for multiplication, '/' for division"
+		+ "'sin' for sin x, 'cos' for cos x, 'tan' for tan x: ");
+
+	operation = scan.next();
+}
+
+	if(operation.equals("+")){
+		System.out.println("How many numbers do you want to add?: ");
+		int nums = scan.nextInt();
+		System.out.println("Enter "+nums+" numbers: ");
+		result=0;
+		int count= 1;
+
+	while(count <= nums) {
+		num = scan.nextDouble();
+		result =result + num;
+		count++;
+	}	
+
+}
+
+	else if(operation.equals("-")) {
+		System.out.println("How many numbers do you want to add?: ");
+		int nums = scan.nextInt();
+		System.out.println("Enter "+nums+" numbers: ");
+		num = scan.nextDouble();
+		result = num;
+		int count= 1;
+
+	while(count < nums) {
+		num = scan.nextDouble();
+		result =result - num;
+		count++;
+	}
+}
+	else if(operation.equals("*")) {
+		System.out.println("How many numbers do you want to add?: ");
+		int nums = scan.nextInt();
+		System.out.println("Enter "+nums+" numbers: ");
+		result=1;
+		int count= 1;
+		
+	while(count <= nums) {
+		num = scan.nextDouble();
+		result =result* num;
+			count++;	
+	}
+}
+	else if(operation.equals("/")) {
+		System.out.println("How many numbers do you want to add?: ");
+		int nums = scan.nextInt();
+		System.out.println("Enter "+nums+" numbers: ");
+		num = scan.nextDouble();
+		result = num;
+		int count= 1;
+	while(count < nums) {
+			num = scan.nextDouble();
+			result =result / num;
+			count++;
+			}
+}
+	else if(operation.equals("sin")) {
+		System.out.println("Enter a number in radians to find the sin:");
+		x =scan.nextDouble();
+		result = Math.sin(x);
+}
+	else if(operation.equals("cos")){
+		System.out.println("Enter a number in radians to find the cos:");
+		x =scan.nextDouble();
+		result =Math.cos(x);
+}
+	else if(operation.equals("tan")){
+		System.out.println("Enter a number in radians to find the tan:");
+		x =scan.nextDouble();
+		result=Math.tan(x);
+	}
+}	
+		System.out.println("result" + result);
+
+	
+	System.out.println("Do you want to start over? (Y/N)?");
+	starOverAgain = scan.next();
+	}while(starOverAgain.equals("Y"));
+	System.out.println("Goodbye");
+	}
+}
