@@ -1,0 +1,111 @@
+*Required are to Write a program that prompts the user 
+*to enter a telephone number expressed in letters 
+*and outputs the corresponding telephone number in digits.
+*Date created: 3/17/2023
+*Email: qiurong.chen@lc.cuny.edu
+*/
+import java. util.Scanner;
+public class  TelephoneNumber{
+	public static void main(String[] args) {
+		
+    Scanner scnr = new Scanner(System.in);
+    
+    System.out.println("Please enter a telephone number using letters : ");
+    
+    String output = "";
+    
+    String letters = scnr.nextLine();
+    
+    for (int i = 0; i < letters.length(); i++) {
+    	
+    	
+        char letter = letters.charAt(i);
+        if (Character.isLetter(letter)) {
+           
+    	if(Character.isLetter(letter)) {
+    	
+    	if(letter == 'A'||
+    			letter == 'a'||
+    			letter == 'B'||
+    			letter == 'b'||
+    			letter == 'C'||
+    			letter == 'c') {
+    		output += "2";
+    	}
+    	else if(letter == 'E'||
+    			letter == 'e'||
+    			letter == 'f'||
+    			letter == 'F'||
+    			letter == 'D'||
+    			letter == 'd') {
+    		output += "3";
+    	}
+    	else if(letter == 'g'||
+    			letter == 'G'||
+    			letter == 'h'||
+    			letter == 'H'||
+    			letter == 'I'||
+    			letter == 'i') {
+    		output += "4";
+    	}
+    	else if(letter == 'j'||
+    			letter == 'k'||
+    			letter == 'l'||
+    			letter == 'J'||
+    			letter == 'K'||
+    			letter == 'L') {
+    		output += "5";
+    	}
+    	else if(letter == 'M'||
+    			letter == 'N'||
+    			letter == 'O'||
+    			letter == 'm'||
+    			letter == 'n'||
+    			letter == 'o') {
+    		output += "6";
+    	}
+    	else if(letter == 'p'||
+    			letter == 'q'||
+    			letter == 'r'||
+    			letter == 's'||
+    			letter == 'P'||
+    			letter == 'Q'||
+    			letter == 'R'||
+    			letter == 'S') {
+    		output += "7";
+    	}
+    	else if(letter == 'T'||
+    			letter == 'U'||
+    			letter == 'V'||
+    			letter == 't'||
+    			letter == 'u'||
+    			letter == 'v') {
+    		output += "8";
+    	}
+    	else if(letter == 'w'||
+    			letter == 'x'||
+    			letter == 'y'||
+    			letter == 'z'||
+    			letter == 'W'||
+    			letter == 'X'||
+    			letter == 'Y'||
+    			letter == 'Z') {
+    		output += "9";
+    	}
+    }
+    if (output.length()==3) {
+    	output += "-";
+    }
+    if (output.length()==8) {
+    	break;
+    }
+        }
+        }
+    System.out.println(output);	 
+	}
+
+}
+    		
+    		
+    		
+    		
