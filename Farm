@@ -1,0 +1,146 @@
+public class Farm {
+	 private Animal[] animals = new Animal[10];
+	 private String farmName = "";
+	 private int numAnimals =0;
+	 
+	 public Farm() {
+		 farmName = "Farm";
+		 numAnimals = 0;
+		 animals = new Animal[10];
+	    }
+	 public Farm(String farmName) {
+		 this.farmName = farmName;
+		 numAnimals = 0;
+	     animals = new Animal[10];
+	    }
+	    
+	 public Farm(int size) {
+	     farmName = "Farm";
+	     numAnimals = 0;
+	     animals = new Animal[size];
+	    }
+	    
+	 public Farm(String farmName, int size,int numAnimals) {
+	     this.farmName = farmName;
+	     numAnimals = 0;
+	     animals = new Animal[size];
+	    }
+	 public void addAnimal(Animal animal) {
+		 if(numAnimals<animals.length) {
+			 animals[numAnimals]=animal;
+			 numAnimals++;
+		 }
+	 }
+	 public String getFarmName() {
+		 return farmName;
+	 }
+	 public void setFarmName(String farmName) {
+		 this.farmName=farmName;
+	 }
+	 public Animal getAnimal(int index) {
+		 if(index>=0&&index<numAnimals) {return animals[index];
+		}
+		 else {
+			 return null;
+		 }
+}
+	 public int getNumAnimals() {
+		 return numAnimals;
+	 }
+	 public Animal getFirstAnimal() {
+		 if(numAnimals>0) {
+			 return animals[0];
+		 }
+		 else {
+			 return null;
+		 }
+	 }
+	 public Animal getLastAnimal() {
+		 if(numAnimals>0) {
+			 return animals[numAnimals -1];
+		 }
+		 else {
+			 return null;
+		 }
+	 }
+	 public Animal[] getAnimals() {
+		
+		 return animals;
+	 }
+	 public void printAllDetails() {
+		 System.out.printf("FarmName: %20s |Number of Animal: %4d|"
+		 		+ "Farm Size: %4d\n",
+		 		farmName,numAnimals,animals.length);
+		 for(int i=0;i<numAnimals;i++) {
+			 animals[i].printDetails();
+		 } 
+	 }
+	 public Animal removeAnimal(int index) { 
+	 if(index <0 || index >= numAnimals) {
+		 return null;
+	 }else {
+		 Animal removeAnimal = animals[index];
+		 for(int i =index;(i<numAnimals)&&(i<animals.length);i++) {
+			 animals[i]=animals[i+1];
+		 }
+		 numAnimals--;
+		 return removeAnimal;
+		 }
+	
+	 }
+	 public void removeAllAnimals() {
+		 for(int i=0;i<numAnimals;i++) {
+			 animals[i]=null;
+		 }
+		 numAnimals=0;
+	 }
+	 public double getTotalWeightOfAllAnimals() {
+		 double totalWeight=0.0;
+		 for(int i =0;i<numAnimals;i++) {
+			 totalWeight+=animals[i].getWeight();
+		 }
+		 return totalWeight;
+	 }
+	 public double getAverageWeightOfAllAnimals() {
+		 if(numAnimals>0) {
+			 double averageWeight = getTotalWeightOfAllAnimals()/numAnimals;
+			 return averageWeight;
+		 }
+		 return 0.0;
+	 }
+	 public int getNumberOfAnimalsAboveWeight(double weight) {
+		 int count=0;
+		 for(int i=0;i<numAnimals;i++) {
+			 if(animals[i].getWeight()>weight){
+				 count++;
+			 }
+		 }
+		 return count;
+	 }
+	 public int getNumberOfAnimalsBelowWeight(double weight) {
+		 int count=0;
+		 for(int i=0;i<numAnimals;i++) {
+			 if(animals[i].getWeight()<weight){
+				 count++;
+			 }
+		 }
+		 return count;
+	 }
+	 public void increaseWeightOfAllAnimals() {
+		 for(int i=0;i<numAnimals;i++) {
+			 animals[i].gainWeight();
+		 }
+	 }
+	 public void increaseWeightOfAllAnimals(double amount) {
+		 for(int i=0;i<numAnimals;i++) {
+			 animals[i].gainWeight(amount);
+		 }
+		 }
+	  public void diplayFarm1(){
+		System.out.println(this.farmName);
+		for(int i  =0; i<numAnimals;i++) {
+			animals[i].display();
+		}
+	
+	 }
+}
