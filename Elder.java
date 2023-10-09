@@ -1,3 +1,4 @@
+package hw5;
 
 public class Elder extends Person implements Mover {
 	private String name;
