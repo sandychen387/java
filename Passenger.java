@@ -1,3 +1,4 @@
+package hw5;
 
 
 public abstract class Passenger implements Eater {
