@@ -42,7 +42,7 @@
 	public abstract void speak();
 }
 */
-
+package hw5;
 
 public class Infant extends Person implements Mover {
 	
