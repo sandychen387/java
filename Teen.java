@@ -1,3 +1,4 @@
+package hw5;
 public class Teen extends Person implements Mover {
 	private String name;
 	private int age;
