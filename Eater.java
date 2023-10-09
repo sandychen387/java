@@ -1,3 +1,4 @@
+package hw5;
 
 
 public interface Eater {
