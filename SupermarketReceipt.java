@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.time.LocalDateTime;
 
 public class SupermarketReceipt {
 
@@ -65,10 +66,13 @@ public class SupermarketReceipt {
 
     public static void printReceipt(List<Item> items, double discount, double taxRate) {
         double subtotal = 0;
+        LocalDateTime dateTime = LocalDateTime.now();
         System.out.println("           中华超市");
         System.out.println();
       
         System.out.println("---- Supermarket Receipt ----");
+        System.out.println();
+        System.out.println("时间: " + dateTime);
         System.out.println("商品名称        数量   单价    小计");
 
         for (Item item : items) {
